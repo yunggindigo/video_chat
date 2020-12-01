@@ -1,0 +1,15 @@
+<nav>
+  <ul>
+    <li class="link"><a  href="<%= root_path %>">Home</a></li>
+    <% unless current_user %>
+      <li class="links">
+        <a href="<%= new_user_registration_path %>"> Create account </a>
+        <a  href="<%= new_user_session_path %>"> Sign In </a>
+      </li>
+    <% else %>
+      <li class="links">
+        <%= username %>
+      </li>
+    <% end %>
+  <ul>
+</nav>
