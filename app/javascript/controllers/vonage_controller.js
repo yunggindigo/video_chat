@@ -22,8 +22,8 @@ export default class extends Controller {
 
     this.publisher = OT.initPublisher(this.element, {
       insertMode: 'append',
-      width: '100%',
-      height: '100%',
+      width: '400',
+      height: '300',
       name: this.data.get("name"),
     }, this.handleError.bind(this))
 
@@ -41,8 +41,8 @@ export default class extends Controller {
   streamCreated(event) {
     this.session.subscribe(event.stream, this.element, {
       insertMode: 'append',
-      width: '100%',
-      height: '100%',
+      width: '300',
+      height: '400',
 
     }, this.handleError.bind(this))
   }

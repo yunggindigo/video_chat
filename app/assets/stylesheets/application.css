@@ -13,16 +13,6 @@
  *= require_tree .
  *= require_self
  */
- #videos {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  width: 100%;
-  min-height: 25em;
-}
-
-.OT_root {
-  height: 25em;
-}
 
 * {
   margin: 0;
