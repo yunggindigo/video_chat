@@ -16,7 +16,7 @@ export default class extends Controller {
   }
 
   initializeSession() {
-    this.session = OT.initSession(this.api_key, this.sessionId);
+    this.session = OT.initSession(this.apiKey, this.sessionId);
 
     this.session.on('streamCreated', this.streamCreated.bind(this));
 
@@ -30,14 +30,6 @@ export default class extends Controller {
     this.session.connect(this.token, this.streamConnected.bind(this))
   }
 
-  streamConnected(error) {
-    if (error) {
-      this.handleError(error)
-    } else {
-      this.session.publish(this.publisher, this.handleError.bind(this))
-    }
-  }
-
   streamCreated(event) {
     this.session.subscribe(event.stream, this.element, {
       insertMode: 'append',
@@ -46,6 +38,15 @@ export default class extends Controller {
 
     }, this.handleError.bind(this))
   }
+
+  streamConnected(error) {
+    if (error) {
+      this.handleError(error)
+    } else {
+      this.session.publish(this.publisher, this.handleError.bind(this))
+    }
+  }
+
 
   handleError(error) {
     if (error) {
